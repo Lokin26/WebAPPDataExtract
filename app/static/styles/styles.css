@@ -1,0 +1,90 @@
+/* styles/styles.css */
+
+:root {
+    --custom-blue-60: #1e88e5; /* Custom blue shade */
+    --custom-blue-10: #e1f5fe; /* Custom light blue shade */
+    --custom-gray-10: #f5f5f5; /* Custom light gray */
+    --custom-gray-100: #424242; /* Custom dark gray */
+    --custom-white: #ffffff; /* Custom white */
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Use Arial as fallback font */
+    line-height: 1.5;
+    color: var(--custom-gray-100); /* Dark gray text */
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--custom-white); /* White background */
+}
+
+h1 {
+    color: var(--custom-blue-60); /* Custom blue for headings */
+    text-align: center;
+}
+
+form {
+    background: var(--custom-gray-10); /* Light gray background for forms */
+    border-radius: 4px;
+    padding: 24px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+input[type="text"], input[type="url"], select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #8d8d8d; /* Light gray border */
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+input[type="text"]:focus, input[type="url"]:focus, select:focus {
+    outline: 2px solid var(--custom-blue-60); /* Custom blue outline on focus */
+}
+
+button {
+    background-color: var(--custom-blue-60); /* Custom blue button */
+    color: var(--custom-white); /* White text on button */
+    padding: 12px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1976d2; /* Darker shade of blue on hover */
+}
+
+#result {
+    margin-top: 24px;
+    padding: 24px;
+    background: var(--custom-blue-10); /* Light blue background */
+    border-radius: 4px;
+    border-left: 4px solid var(--custom-blue-60); /* Custom blue border on left */
+}
+
+#loading {
+    text-align: center;
+    display: none;
+    color: var(--custom-blue-60); /* Custom blue text color */
+    font-weight: 600;
+    margin-top: 24px;
+}
+
+footer {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--custom-gray-100); /* Dark gray footer text */
+}

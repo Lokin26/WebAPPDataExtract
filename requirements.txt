@@ -1,0 +1,13 @@
+flask
+python-dotenv
+anthropic
+openai
+langchain
+langchain-community
+requests
+PyPDF2
+faiss-cpu
+numpy
+sentence-transformers
+torch
+beautifulsoup4

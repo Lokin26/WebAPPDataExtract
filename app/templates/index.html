@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Interface - Extract Data from Web URL or PDF</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>Web Interface - Extract Data from Web URL or PDF</h1>
+    <form id="searchForm">
+        <label for="query">Search Query:</label>
+        <input type="text" id="query" placeholder="Enter your query" required>
+        
+        <label for="sourceType">Source Type:</label>
+        <select id="sourceType" required>
+            <option value="web">Web</option>
+            <option value="pdf">PDF</option>
+        </select>
+        
+        <label for="sourceUrl">Source URL:</label>
+        <input type="url" id="sourceUrl" placeholder="Enter source URL" required>
+        
+        <button type="submit">Search</button>
+    </form>
+    
+    <div id="loading">Searching... Please wait.</div>
+    
+    <div id="result"></div>
+
+    <footer>
+        <p>&copy; 2024 Bala. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const query = document.getElementById('query').value;
+            const sourceType = document.getElementById('sourceType').value;
+            const sourceUrl = document.getElementById('sourceUrl').value;
+            const loadingDiv = document.getElementById('loading');
+            const resultDiv = document.getElementById('result');
+
+            loadingDiv.style.display = 'block';
+            resultDiv.innerText = '';
+
+            try {
+                const response = await axios.post('/search', {
+                    query: query,
+                    source_type: sourceType,
+                    source_url: sourceUrl
+                });
+                resultDiv.innerText = response.data.result;
+            } catch (error) {
+                console.error('Error:', error);
+                resultDiv.innerText = error.response?.data?.error || 'An unexpected error occurred';
+            } finally {
+                loadingDiv.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
